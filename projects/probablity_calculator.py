@@ -22,7 +22,7 @@ def experiment(hat: Hat, expected_balls: dict, num_balls_drawn: int, num_experim
     success = 0
     for experiment in range(num_experiments):
         is_subset = True
-        test_hat = copy.copy(hat)
+        test_hat = copy.deepcopy(hat)
         actual_drawn = test_hat.draw(num_balls_drawn)
         for ball in required_combination:
             try:
@@ -32,3 +32,5 @@ def experiment(hat: Hat, expected_balls: dict, num_balls_drawn: int, num_experim
                 break
         success += 1 if is_subset else 0
     return success/num_experiments
+
+#seed 750
